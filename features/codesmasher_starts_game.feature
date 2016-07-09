@@ -5,7 +5,6 @@ Feature: code-breaker starts game
   So that I can break the code
 
   Scenario: start game
-
     Given I am not yet playing
     When I start a new game
     Then I should see "Welcome to Codebreaker!"
