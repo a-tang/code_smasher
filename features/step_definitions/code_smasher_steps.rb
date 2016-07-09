@@ -1,6 +1,25 @@
-Given(/^I am not yet playing$/) do
+class Output
+  def messages
+    @messages ||= []
+  end
+
+  def puts(message)
+    messages << message
+  end
 end
 
-When(/^I start a new game$/) do
-  Codesmasher::Game.new.start
+def terminal_output
+  @output ||= Output.new
+end
+
+Given /^I am not yet playing$/ do
+end
+
+When /^I start a new game$/ do
+  game = Codesmasher::Game.new(output)
+  game.start
+end
+
+Then /^I should see "([^"]*)"$/ do |message|
+  expect(terminal_output.messages).to include(message)
 end
