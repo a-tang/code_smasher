@@ -16,7 +16,7 @@ Given /^I am not yet playing$/ do
 end
 
 When /^I start a new game$/ do
-  game = Codesmasher::Game.new(output)
+  game = Codesmasher::Game.new(terminal_output)
   game.start
 end
 
